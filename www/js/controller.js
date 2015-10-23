@@ -2,11 +2,13 @@
 
 	var MainController = function ($scope, $cordovaMedia, $ionicLoading) {
 
-		if($ionicPlatform.is('android')) {
-			src = '/android_asset/www/' + src;
-		};
+		
 
 		$scope.play = function(src) {
+		
+			if(ionic.Platform.isAndroid()) {
+				src = '/android_asset/www/' + src;
+			};
 			var media = new Media(src, null, null, mediaStatusCallback);
 			media.play(media);
 		} 
@@ -23,6 +25,6 @@
 
 	};
 
-	angular.module("soundApp").controller("MainController", MainController);
+	angular.module('soundApp').controller('MainController', MainController);
 
 })();
