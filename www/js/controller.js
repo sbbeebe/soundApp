@@ -11,6 +11,7 @@
 			};
 			var media = new Media(src, null, null, mediaStatusCallback);
 			media.play(media);
+			window.plugins.insomnia.keepAwake();
 		} 
 
 		var mediaStatusCallback = function(status) {
